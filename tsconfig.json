@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "sourceMap": true,
+        "strict": true,
+        "moduleResolution": "Node",
+        "baseUrl": "./src",
+        "paths": {
+            "~/*": ["./*"]
+        },
+        "typeRoots": ["src/images/"],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": false
+    },
+    "include": ["src/**/*"]
+}
