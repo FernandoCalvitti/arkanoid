@@ -117,9 +117,83 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.ts":[function(require,module,exports) {
+})({"view/canvas-view.ts":[function(require,module,exports) {
 "use strict";
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CanvasView = void 0;
+var CanvasView = exports.CanvasView = /** @class */function () {
+  function CanvasView(canvasName) {
+    this.canvas = document.querySelector(canvasName);
+    this.context = this.canvas.getContext("2d");
+    this.scoreDisplay = document.querySelector("#score");
+    this.start = document.querySelector("#start");
+    this.info = document.querySelector("#info");
+  }
+  CanvasView.prototype.clear = function () {
+    if (!this.context) {
+      return;
+    }
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  };
+  CanvasView.prototype.initStartButton = function (startFunction) {
+    var _this = this;
+    if (!this.start) {
+      return;
+    }
+    this.start.addEventListener("click", function () {
+      return startFunction(_this);
+    });
+  };
+  CanvasView.prototype.drawScore = function (score) {
+    if (this.scoreDisplay) {
+      this.scoreDisplay.innerHTML = score.toString();
+    }
+  };
+  CanvasView.prototype.drawInfo = function (text) {
+    if (this.info) {
+      this.info.innerHTML = text;
+    }
+  };
+  CanvasView.prototype.drawSprite = function (brick) {
+    if (!brick || !this.context) {
+      return;
+    }
+    this.context.drawImage(brick.image, brick.pos.x, brick.pos.y, brick.witdh, brick.height);
+  };
+  CanvasView.prototype.drawBricks = function (bricks) {
+    var _this = this;
+    if (!bricks) {
+      return;
+    }
+    bricks.forEach(function (brick) {
+      _this.drawSprite(brick);
+    });
+  };
+  return CanvasView;
+}();
+},{}],"index.ts":[function(require,module,exports) {
+"use strict";
+
+var _canvasView = require("./view/canvas-view");
+var gameOver = false;
+var score = 0;
+function setGameOver(view) {
+  view.drawInfo("Game Over!");
+  gameOver = false;
+}
+function setGameWin(view) {
+  view.drawInfo("Game Won!!!");
+  gameOver = false;
+}
+function gameLoop(view, bricks, paddle, ball) {}
+function startGame(view) {}
+// Create a new view
+var view = new _canvasView.CanvasView("#playField");
+view.initStartButton(startGame);
+},{"./view/canvas-view":"view/canvas-view.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
