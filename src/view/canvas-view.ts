@@ -3,7 +3,7 @@ import { Paddle } from "../sprites/paddle";
 import { Ball } from "../sprites/ball";
 
 export class CanvasView {
-  private canvas: HTMLCanvasElement;
+  canvas: HTMLCanvasElement;
   private context: CanvasRenderingContext2D | null;
   private scoreDisplay: HTMLObjectElement | null;
   private start: HTMLObjectElement | null;
