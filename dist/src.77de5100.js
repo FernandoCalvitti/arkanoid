@@ -191,7 +191,7 @@ function setGameWin(view) {
 function gameLoop(view, bricks, paddle, ball) {}
 function startGame(view) {}
 // Create a new view
-var view = new _canvasView.CanvasView("#palyField");
+var view = new _canvasView.CanvasView("#playField");
 view.initStartButton(startGame);
 },{"./view/canvas-view":"view/canvas-view.ts"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

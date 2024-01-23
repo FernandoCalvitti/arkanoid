@@ -43,5 +43,5 @@ function startGame(view: CanvasView) {}
 
 // Create a new view
 
-const view = new CanvasView("#palyField");
+const view = new CanvasView("#playField");
 view.initStartButton(startGame);
