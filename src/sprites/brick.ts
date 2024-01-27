@@ -4,13 +4,13 @@ export class Brick {
   private brickImage: HTMLImageElement = new Image();
 
   constructor(
-    private brickWidht: number,
+    private brickWidth: number,
     private brickHeight: number,
     private position: Vector,
     private brickEnergy: number,
     image: string
   ) {
-    this.brickWidht = brickWidht;
+    this.brickWidth = brickWidth;
     this.brickHeight = brickHeight;
     this.position = position;
     this.brickEnergy = brickEnergy;
@@ -18,8 +18,8 @@ export class Brick {
   }
 
   //Getters
-  get widht(): number {
-    return this.brickWidht;
+  get width(): number {
+    return this.brickWidth;
   }
 
   get height(): number {
@@ -31,7 +31,7 @@ export class Brick {
   }
 
   get image(): HTMLImageElement {
-    return this.image;
+    return this.brickImage;
   }
 
   get energy(): number {
