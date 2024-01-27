@@ -19,6 +19,9 @@ import {
   BALL_START_Y,
 } from "./setup";
 
+//Helpers
+import { createBricks } from "./helpers";
+
 let gameOver = false;
 let score = 0;
 
@@ -34,12 +37,27 @@ function setGameWin(view: CanvasView) {
 
 function gameLoop(
   view: CanvasView,
-  bricks: Brick[],
-  paddle: Paddle,
-  ball: Ball
-) {}
+  bricks: Brick[]
+  /* paddle: Paddle,
+  ball: Ball */
+) {
+  view.clear();
+  view.drawBricks(bricks);
 
-function startGame(view: CanvasView) {}
+  requestAnimationFrame(() => gameLoop(view, bricks));
+}
+
+function startGame(view: CanvasView) {
+  //Reset the displays
+  score = 0;
+  view.drawInfo("");
+  view.drawScore(0);
+
+  //Build bricks
+  const bricks = createBricks();
+
+  gameLoop(view, bricks);
+}
 
 // Create a new view
 

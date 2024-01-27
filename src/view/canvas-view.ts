@@ -45,7 +45,7 @@ export class CanvasView {
     }
   }
 
-  drawSprite(brick: Brick | Paddle | Ball): void {
+  drawSprite(brick: Brick /* | Paddle | Ball */): void {
     if (!brick || !this.context) {
       return;
     }
@@ -54,7 +54,7 @@ export class CanvasView {
       brick.image,
       brick.pos.x,
       brick.pos.y,
-      brick.witdh,
+      brick.width,
       brick.height
     );
   }
